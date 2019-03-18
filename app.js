@@ -10,7 +10,18 @@ var tictactoe = {
   8: false,
   9: false
 }
+var tilecolor = {
+  1: 'grey',
+  2: 'grey',
+  3: 'grey',
+  4: 'grey',
+  5: 'grey',
+  6: 'grey',
+  7: 'grey',
+  8: 'grey',
+  9: 'grey'
 
+}
 var count = 0;
 
 //on Click change colors and add X && O
@@ -19,23 +30,28 @@ document.querySelectorAll('.tile').forEach(function(e) {
     //split the classname to isolate the last number
     var number = this.className.slice(-1)
     //compare the number to the key value of the tictactoe object
-    for (var key in tictactoe) {
+  //  for (var key in tictactoe) {
+      for (var key in tilecolor) {
       if (number === key) {
         //if the tile has already been activated then ignore
-        if (tictactoe[key] === true) {
+       // if (tictactoe[key] === true) {
+        if (tilecolor[key] === 'red' || tilecolor[key] === 'green') {
           continue
         } else {
           //set the tile to true and change color and text
-          tictactoe[key] = true
+          //tictactoe[key] = true
           if (count % 2 === 0) {
+            tilecolor[number] = 'red';
             turnRed(e);
             count++;
             } else {
+              tilecolor[number] = 'green';
               turnGreen(e);
               count ++;
             }
         }
       }
+      console.log(tilecolor)
     }
   })
 });
@@ -55,24 +71,32 @@ var turnGreen = function (e) {
   e.style.fontWeight = 'bold';
   e.style.color = "white";
 }
-var turnGrey = function (e) {
-  e.style.backgroundColor = "grey";
-  e.innerHTML = ''
-  e.style.color = "grey";
-}
 
 //play again button
-document.getElementById('restart').addEventListener('click', function() {
-  for (var key in tictactoe) {
+document.getElementById('restart').addEventListener('click', function(e) {
+  //for (var key in tictactoe) {
+    for (var key in tilecolor) {
     var number = 'button'+ key;
-    console.log(number)
     var tile = document.getElementsByClassName(number)[0];
     tile.innerHTML = ".";
     tile.style.color = "grey";
     tile.style.backgroundColor = "grey";
-    tictactoe[key] = false;
+    //tictactoe[key] = false;
+    tilecolor[key] = 'grey';
+    console.log(tilecolor)
   }
+  // for (var key in tilecolor) {
+  //   tilecolor[key] = 'grey';
+  // }
+
 });
+
+//victory scenarios
+// if (tilecolor[1] === 'red' && tilecolor[2] === 'red' && tilecolor === )
+
+
+
+
 
 // document.getElementById("myBtn").addEventListener("click", function(){
 //   document.getElementById("demo").innerHTML = "Hello World";
