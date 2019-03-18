@@ -3,65 +3,63 @@
   <head>
     <title>Ignacio's Tic Tac Toe</title>
     <style>
-      .button {
+      .tile {
         height: 50px;
         width: 50px;
         background-color: grey;
         color: grey;
-
       }
       .square {
         margin: 5px;
         display:inline-grid;
       }
-      /* .square4,.square5,.square6 {
-
-        display: inline-grid;
+      .restart {
+        height: 40px;
+        margin: 50px;
+        background-color: blanchedalmond;
+        color: black;
       }
-      .square7,.square8,.square9 {
-
-        display: inline-grid;
-      } */
     </style>
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
     <div class="tictactoe">
       <div class="first_row">
-          <!-- onclick="return handleClick(event)" -->
         <div class="square square1">
-          <button   class="button button1">.</button>
+          <button   class="tile button1">.</button>
         </div>
         <div class="square square2">
-            <button class="button button2">.</button>
+            <button class="tile button2">.</button>
         </div>
         <div class="square square3">
-            <button class="button button3">.</button>
+            <button class="tile button3">.</button>
         </div>
-
       </div>
       <div class="second_row">
         <div class="square square4">
-            <button class="button button4">.</button>
+            <button class="tile button4">.</button>
         </div>
         <div class="square square5">
-            <button class="button button5">.</button>
+            <button class="tile button5">.</button>
         </div>
         <div class="square square6">
-            <button class="button button6">. </button>
+            <button class="tile button6">.</button>
         </div>
       </div>
       <div class="third_row">
           <div class="square square7">
-              <button class="button button7">. </button>
+              <button class="tile button7">.</button>
           </div>
           <div class="square square8">
-              <button class="button button8">. </button>
+              <button class="tile button8">.</button>
           </div>
           <div class="square square9">
-              <button class="button button9">. </button>
+              <button class="tile button9">.</button>
           </div>
         </div>
+    </div>
+    <div>
+      <button class="restart">PLAY AGAIN</button>
     </div>
     <script type="text/javascript" src="./app.js"></script>
   </body>
