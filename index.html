@@ -2,25 +2,69 @@
 <html lang="en">
   <head>
     <title>Ignacio's Tic Tac Toe</title>
+    <style>
+      .button {
+        height: 50px;
+        width: 50px;
+        background-color: grey;
+        margin-top: 5px;
+      }
+      .button:hover {
+        background-color: rgb(4, 251, 98);
+      }
+      .square1,.square2,.square3 {
+        margin: 5px;
+        display: inline-block;
+      }
+      .square4,.square5,.square6 {
+        margin: 5px;
+        display: inline-block;
+      }
+      .square7,.square8,.square9 {
+        margin: 5px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
     <div class="tictactoe">
       <div class="first_row">
-        <span class="square1"></span>
-        <span class="square2"></span>
-        <span class="square3"></span>
+
+        <div class="square square1">
+          <button onclick="return handleClick(event)" class="button button1"></button>
+        </div>
+        <div class="square square2">
+            <button class="button button2"></button>
+        </div>
+        <div class="square square3">
+            <button class="button button3"></button>
+        </div>
+
       </div>
       <div class="second_row">
-        <span class="square4"></span>
-        <span class="square5"></span>
-        <span class="square6"></span>
+        <div class="square square4">
+            <button class="button button4"></button>
+        </div>
+        <div class="square square5">
+            <button class="button button5"></button>
+        </div>
+        <div class="square square6">
+            <button class="button button6"></button>
+        </div>
       </div>
       <div class="third_row">
-          <span class="square7"></span>
-          <span class="square8"></span>
-          <span class="square9"></span>
+          <div class="square square7">
+              <button class="button button7"></button>
+          </div>
+          <div class="square square8">
+              <button class="button button8"></button>
+          </div>
+          <div class="square square9">
+              <button class="button button9"></button>
+          </div>
         </div>
     </div>
+    <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>
