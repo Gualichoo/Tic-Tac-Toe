@@ -10,10 +10,9 @@ var tilecolor = {
   9: 'grey'
 }
 
-var redResultsArray = [];
-var greenResultsArray = [];
+var resultsArray = [];
 var count = 0;
-
+var victory = false;
 //on Click change colors and add X && O
 document.querySelectorAll('.tile').forEach(function(e) {
   e.addEventListener('click', function() {
@@ -23,19 +22,19 @@ document.querySelectorAll('.tile').forEach(function(e) {
       for (var key in tilecolor) {
       if (number === key) {
         //if the tile has already been activated then ignore
-        if (tilecolor[key] === 'red' || tilecolor[key] === 'green') {
+        if (tilecolor[key] === 'red' || tilecolor[key] === 'green' || victory === true) {
           continue
         } else {
           //set the tile to true and change color and text
           if (count % 2 === 0) {
             tilecolor[number] = 'red';
             turnRed(e);
-            redResultsArray.push(Number(number));
+            resultsArray.push(Number(number));
             count++;
             } else {
               tilecolor[number] = 'green';
               turnGreen(e);
-              greenResultsArray.push(Number(number));
+              resultsArray.push(Number(number));
               count ++;
             }
         }
@@ -49,8 +48,9 @@ document.querySelectorAll('.tile').forEach(function(e) {
         tilecolor[1] === 'red' && tilecolor[5] === 'red' && tilecolor[9] === 'red' ||
         tilecolor[7] === 'red' && tilecolor[5] === 'red' && tilecolor[3] === 'red'
       ) {
-        console.log('red victory')
-        removeEvents();
+        victory = true;
+        //alert ('Red wins!!! Congratulations :)')
+        setTimeout(alert ('Red wins!!! Congratulations :)'), 1);
         // e.querySelectorAll('.tile').removeEventListener('click');
         // document.getElementById("restart").click();
       } else if (
@@ -63,8 +63,12 @@ document.querySelectorAll('.tile').forEach(function(e) {
         tilecolor[1] === 'green' && tilecolor[5] === 'green' && tilecolor[9] === 'green' ||
         tilecolor[7] === 'green' && tilecolor[5] === 'green' && tilecolor[3] === 'green'
       ) {
-        console.log('green victory')
+        victory = true;
+        alert ('Green wins!!! Congratulations :)')
       };
+      if (resultsArray.length === 9) {
+        alert ('It\'s a draw, try again')
+      }
       }
       }
     }
@@ -90,8 +94,7 @@ var turnGreen = function (e) {
 
 //play again button
 document.getElementById('restart').addEventListener('click', function(e) {
-    redResultsArray = [];
-    greenResultsArray = [];
+    resultsArray = [];
     count = 0;
     for (var key in tilecolor) {
     var number = 'button'+ key;
@@ -100,16 +103,21 @@ document.getElementById('restart').addEventListener('click', function(e) {
     tile.style.color = "grey";
     tile.style.backgroundColor = "grey";
     tilecolor[key] = 'grey';
+    victory = false;
   }
 });
 
-//remove event listener
-var removeEvents = function () {
-  document.querySelectorAll('.tile').forEach(function(e) {
-  e.removeEventListener('click', function() {
-  }
-  )})
+if (victory === true) {
+
 }
+
+//remove event listener
+// var removeEvents = function () {
+//   document.querySelectorAll('.tile').forEach(function(e) {
+//   e.removeEventListener('click', function() {
+//   }
+//   )})
+// }
 //victory scenarios
 
 //  if (redResultsArray.includes(1))
