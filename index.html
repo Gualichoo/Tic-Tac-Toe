@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ignacio's Tic Tac Toe</title>
-    <style>
-      .tile {
-        height: 50px;
-        width: 50px;
-        background-color: grey;
-        color: grey;
-      }
-      .square {
-        margin: 6px;
-        display:inline-grid;
-      }
-      #restart {
-        height: 40px;
-        margin: 50px;
-        background-color: blanchedalmond;
-        color: black;
-      }
-    </style>
+    <link rel="stylesheet" type = "text/css" href="style.css">
+    <title >Ignacio's Tic Tac Toe</title>
+
   </head>
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div class="tictactoe">
-      <div class="first_row">
-        <div class="square square1">
-          <button   class="tile button1">.</button>
-        </div>
-        <div class="square square2">
-            <button class="tile button2">.</button>
-        </div>
-        <div class="square square3">
-            <button class="tile button3">.</button>
-        </div>
+
+    <div class="container">
+      <form id="form1" >
+      <div class="player1">Enter player number 1 name<br>
+        <input type="text" class="player1name"><br>
+        <input type="button" class="submit1" value="Submit">
       </div>
-      <div class="second_row">
-        <div class="square square4">
-            <button class="tile button4">.</button>
+    </form>
+      <div class="tictactoe">
+        <h1 class="title">Tic Tac Toe</h1>
+        <div class="first_row">
+          <div class="square square1">
+            <button   class="tile button1">.</button>
+          </div>
+          <div class="square square2">
+              <button class="tile button2">.</button>
+          </div>
+          <div class="square square3">
+              <button class="tile button3">.</button>
+          </div>
         </div>
-        <div class="square square5">
-            <button class="tile button5">.</button>
+        <div class="second_row">
+          <div class="square square4">
+              <button class="tile button4">.</button>
+          </div>
+          <div class="square square5">
+              <button class="tile button5">.</button>
+          </div>
+          <div class="square square6">
+              <button class="tile button6">.</button>
+          </div>
         </div>
-        <div class="square square6">
-            <button class="tile button6">.</button>
-        </div>
+        <div class="third_row">
+            <div class="square square7">
+                <button class="tile button7">.</button>
+            </div>
+            <div class="square square8">
+                <button class="tile button8">.</button>
+            </div>
+            <div class="square square9">
+                <button class="tile button9">.</button>
+            </div>
+          </div>
+          <div>
+            <button id="restart">PLAY AGAIN</button>
+          </div>
       </div>
-      <div class="third_row">
-          <div class="square square7">
-              <button class="tile button7">.</button>
-          </div>
-          <div class="square square8">
-              <button class="tile button8">.</button>
-          </div>
-          <div class="square square9">
-              <button class="tile button9">.</button>
-          </div>
-        </div>
+      <div class="player2">Enter player number 2 name<br>
+        <input type="text" class="player2name"><br>
+        <input type="button" class="submit2" value="Submit">
+      </div>
     </div>
-    <div>
-      <button id="restart">PLAY AGAIN</button>
-    </div>
+
     <script type="text/javascript" src="./app.js"></script>
   </body>
 </html>
