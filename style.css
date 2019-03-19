@@ -1,0 +1,60 @@
+.container{
+  width: 100%;
+}
+.body {
+
+}
+.title {
+  margin-left: 20px;
+  color: rgb(254, 200, 5);
+  text-shadow: 1px 1px black;
+}
+.tile {
+  height: 50px;
+  width: 50px;
+  background-color: grey;
+  color: grey;
+}
+.square {
+  margin: 6px;
+  display:inline-grid;
+}
+#restart {
+  height: 40px;
+  margin: 50px;
+  background-color: blanchedalmond;
+  color: black;
+}
+.tictactoe {
+  float: left;
+  max-width: 200px;
+  margin: 0 10% 0 10%;
+}
+.player1, .player2 {
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 18px;
+  padding: 10px 0 0 30px;
+  float: left;
+  min-width: 100px;
+  height: 150px;
+  background-color: rgb(96, 200, 192);
+}
+.player1name, .player2name {
+  margin: 20px 20px 20px 0px;
+  height: 20px;
+  font-size: 14pt;
+}
+input.submit1, input.submit2 {
+  background-color: rgb(205, 248, 243);
+  border: none;
+  color: rgb(69, 81, 84);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 35px;
+  cursor: pointer;
+
+}
