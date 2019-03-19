@@ -1,15 +1,3 @@
-
-var tictactoe = {
-  1: false,
-  2: false,
-  3: false,
-  4: false,
-  5: false,
-  6: false,
-  7: false,
-  8: false,
-  9: false
-}
 var tilecolor = {
   1: 'grey',
   2: 'grey',
@@ -20,8 +8,10 @@ var tilecolor = {
   7: 'grey',
   8: 'grey',
   9: 'grey'
-
 }
+
+var redResultsArray = [];
+var greenResultsArray = [];
 var count = 0;
 
 //on Click change colors and add X && O
@@ -30,31 +20,57 @@ document.querySelectorAll('.tile').forEach(function(e) {
     //split the classname to isolate the last number
     var number = this.className.slice(-1)
     //compare the number to the key value of the tictactoe object
-  //  for (var key in tictactoe) {
       for (var key in tilecolor) {
       if (number === key) {
         //if the tile has already been activated then ignore
-       // if (tictactoe[key] === true) {
         if (tilecolor[key] === 'red' || tilecolor[key] === 'green') {
           continue
         } else {
           //set the tile to true and change color and text
-          //tictactoe[key] = true
           if (count % 2 === 0) {
             tilecolor[number] = 'red';
             turnRed(e);
+            redResultsArray.push(Number(number));
             count++;
             } else {
               tilecolor[number] = 'green';
               turnGreen(e);
+              greenResultsArray.push(Number(number));
               count ++;
             }
         }
+      if (
+        tilecolor[1] === 'red' && tilecolor[4] === 'red' && tilecolor[7] === 'red' ||
+        tilecolor[2] === 'red' && tilecolor[5] === 'red' && tilecolor[8] === 'red' ||
+        tilecolor[3] === 'red' && tilecolor[6] === 'red' && tilecolor[9] === 'red' ||
+        tilecolor[1] === 'red' && tilecolor[2] === 'red' && tilecolor[3] === 'red' ||
+        tilecolor[4] === 'red' && tilecolor[5] === 'red' && tilecolor[6] === 'red' ||
+        tilecolor[7] === 'red' && tilecolor[8] === 'red' && tilecolor[9] === 'red' ||
+        tilecolor[1] === 'red' && tilecolor[5] === 'red' && tilecolor[9] === 'red' ||
+        tilecolor[7] === 'red' && tilecolor[5] === 'red' && tilecolor[3] === 'red'
+      ) {
+        console.log('red victory')
+        removeEvents();
+        // e.querySelectorAll('.tile').removeEventListener('click');
+        // document.getElementById("restart").click();
+      } else if (
+        tilecolor[1] === 'green' && tilecolor[4] === 'green' && tilecolor[7] === 'green' ||
+        tilecolor[2] === 'green' && tilecolor[5] === 'green' && tilecolor[8] === 'green' ||
+        tilecolor[3] === 'green' && tilecolor[6] === 'green' && tilecolor[9] === 'green' ||
+        tilecolor[1] === 'green' && tilecolor[2] === 'green' && tilecolor[3] === 'green' ||
+        tilecolor[4] === 'green' && tilecolor[5] === 'green' && tilecolor[6] === 'green' ||
+        tilecolor[7] === 'green' && tilecolor[8] === 'green' && tilecolor[9] === 'green' ||
+        tilecolor[1] === 'green' && tilecolor[5] === 'green' && tilecolor[9] === 'green' ||
+        tilecolor[7] === 'green' && tilecolor[5] === 'green' && tilecolor[3] === 'green'
+      ) {
+        console.log('green victory')
+      };
       }
-      console.log(tilecolor)
+      }
     }
-  })
-});
+  )})
+
+
 //style red tiles
 var turnRed = function (e) {
   e.style.backgroundColor = "red";
@@ -74,25 +90,33 @@ var turnGreen = function (e) {
 
 //play again button
 document.getElementById('restart').addEventListener('click', function(e) {
-  //for (var key in tictactoe) {
+    redResultsArray = [];
+    greenResultsArray = [];
+    count = 0;
     for (var key in tilecolor) {
     var number = 'button'+ key;
     var tile = document.getElementsByClassName(number)[0];
     tile.innerHTML = ".";
     tile.style.color = "grey";
     tile.style.backgroundColor = "grey";
-    //tictactoe[key] = false;
     tilecolor[key] = 'grey';
-    console.log(tilecolor)
   }
-  // for (var key in tilecolor) {
-  //   tilecolor[key] = 'grey';
-  // }
-
 });
 
+//remove event listener
+var removeEvents = function () {
+  document.querySelectorAll('.tile').forEach(function(e) {
+  e.removeEventListener('click', function() {
+  }
+  )})
+}
 //victory scenarios
-// if (tilecolor[1] === 'red' && tilecolor[2] === 'red' && tilecolor === )
+
+//  if (redResultsArray.includes(1))
+//  {
+//    console.log('yes')
+//  }
+// }
 
 
 
