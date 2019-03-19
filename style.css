@@ -1,9 +1,6 @@
 .container{
   width: 100%;
 }
-.body {
-
-}
 .title {
   margin-left: 20px;
   color: rgb(254, 200, 5);
@@ -56,5 +53,4 @@ input.submit1, input.submit2 {
   font-size: 15px;
   margin-left: 35px;
   cursor: pointer;
-
 }
