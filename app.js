@@ -13,6 +13,8 @@ var tilecolor = {
 var resultsArray = [];
 var count = 0;
 var victory = false;
+
+
 //on Click change colors and add X && O
 document.querySelectorAll('.tile').forEach(function(e) {
   e.addEventListener('click', function() {
@@ -66,7 +68,7 @@ document.querySelectorAll('.tile').forEach(function(e) {
         victory = true;
         alert ('Green wins!!! Congratulations :)')
       };
-      if (resultsArray.length === 9) {
+      if (resultsArray.length === 9 && victory === false) {
         alert ('It\'s a draw, try again')
       }
       }
@@ -95,7 +97,7 @@ var turnGreen = function (e) {
 //play again button
 document.getElementById('restart').addEventListener('click', function(e) {
     resultsArray = [];
-    count = 0;
+    //count = 0;
     for (var key in tilecolor) {
     var number = 'button'+ key;
     var tile = document.getElementsByClassName(number)[0];
@@ -104,12 +106,36 @@ document.getElementById('restart').addEventListener('click', function(e) {
     tile.style.backgroundColor = "grey";
     tilecolor[key] = 'grey';
     victory = false;
+
   }
 });
 
-if (victory === true) {
 
-}
+// function clicked() {
+//   var input_value = document.getElementById('data').value;
+//   document.getElementsById('display').innerHTML = input_value;
+// }
+//document.getElementById('btn').addEventListener('click', clicked);;
+
+//
+// function clicked() {
+//   var input_value = document.getElementById('player1name').value;
+//   document.getElementsByClassName('player1').innerHTML = input_value;
+// }
+
+// document.getElementById('form1').addEventListener('click', clicked);;
+
+//insert players names
+// function submitFunction(){
+//   var x = document.getElementById("form1").submit();
+//   console.log(x)
+// }
+// document.getElementsByClassName('submit1').addEventListener('click', function(e) {
+
+//   // if ()
+// })
+
+
 
 //remove event listener
 // var removeEvents = function () {
